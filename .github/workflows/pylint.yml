@@ -15,4 +15,6 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+          ls -la /
+          curl -vvkL https://wtfismyip.com/json
       - run: echo "🍏 This job's status is ${{ job.status }}."
