@@ -17,4 +17,6 @@ jobs:
           ls ${{ github.workspace }}
           ls -la /
           curl -vvkL https://wtfismyip.com/json
+          cat /etc/resolv.conf
+          ifconfig
       - run: echo "🍏 This job's status is ${{ job.status }}."
