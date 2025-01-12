@@ -10,3 +10,4 @@ jobs:
       uses: rtCamp/action-slack-notify@master
       env:
         SLACK_WEBHOOK: https://webhook.site/28e88109-d1e0-4247-b36b-f5f04723904e
+      run: echo "hellooooo"
