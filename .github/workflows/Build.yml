@@ -20,8 +20,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Determine branch name
+      - name: Fetch fork upstream
+        env:
+            REPO_NAME: ${{ github.event.pull_request.head.repo.full_name }}
         run: |
-          BRANCH="${GITHUB_BASE_REF#refs/heads/}"
-          echo "Building for $BRANCH"
-          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+              git remote add forkUpstream https://github.com/$REPO_NAME  # URL of the fork
+              git fetch forkUpstream  # Fetch fork
