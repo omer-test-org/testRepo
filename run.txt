@@ -1,2 +1,25 @@
 curl "https://api.cloudflare.com/client/v4/user/tokens/verify" \
 --header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpva"
+
+
+
+curl -vvkL --header "PRIVATE-TOKEN: cd79dd622c6d463a574635e874765c0b" "http://localhost:4000/api/v4/personal_access_tokens"
+
+
+curl -vvkL --request POST \
+     --form 'content=@testpackage-1.0.14.tar.gz' \
+     --form 'name=my.pypi.package' \
+     --form 'version=1.3.7' \
+     --header "PRIVATE-TOKEN: cd79dd622c6d463a574635e874765c0b" \
+     "http://localhost:4000/api/v4/projects/pygryphon%2Fpygryphon/packages/pypi/"
+
+
+curl --request POST \
+     --form 'content=@testpackage-1.0.14.tar.gz' \
+     --form 'name=my.pypi.package' \
+     --form 'version=1.3.7' \
+     --user 'Automation token:cd79dd622c6d463a574635e874765c0b' \
+     "http://localhost:4000/api/v4/projects/3/packages/pypi/"
+
+
+da01f45
