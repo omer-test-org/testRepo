@@ -4,7 +4,6 @@
  */
 
 const { hasPath, dedupComment } = require('./utils')
-console.log(`${owner}:${context.payload.pull_request.base.ref}...${author}:${context.payload.pull_request.head.ref}`)
 
 const testFilesMessage =
     '- This pull request modifies code in `src/*` but no tests were added/updated.\n    - Confirm whether tests should be added or ensure the PR description explains why tests are not required.\n'
@@ -23,7 +22,7 @@ module.exports = async ({ github, context }) => {
     const repo = context.repo.repo
     const author = context.payload.pull_request.head.repo.owner.login
     const pullRequestId = context.payload.pull_request.number
-
+    console.log(`${owner}:${context.payload.pull_request.base.ref}...${author}:${context.payload.pull_request.head.ref}`)
     const response = await github.rest.repos.compareCommitsWithBasehead({
         owner,
         repo,
